@@ -1,25 +1,106 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
+import React from "react";
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/* Component */
+
+import {AboutMe, MyProjects, Contact} from "./components"
+
+class App extends React.Component {
+  state = {
+
+  }
+
+  componentDidMount() {
+    const getText = document.querySelector(".introduction");
+    const textArray = getText.textContent.split("");
+    console.log(textArray);
+    getText.textContent = "";
+
+    for(var i = 0; i < textArray.length; i++) {
+      var newCharSpan = `<span class="char">${textArray[i]}</span>`;
+
+      if(textArray[i] === " ") {
+        newCharSpan = `<span class="char" style="width: 5px">${textArray[i]}</span>`;
+      } 
+
+      getText.innerHTML += newCharSpan;
+      // getText.insertAdjacentHTML("beforeend", newCharSpan);
+    }
+
+    const spanElements = getText.querySelectorAll("span");
+    // console.log(spanElements[0].setAttribute("class", "char fade-in"));
+    var limit = spanElements.length;
+    var charIndex = 0;
+
+    const addFadeIn = setInterval(addFadeInEvent, 50)
+
+    function addFadeInEvent () {
+      spanElements[charIndex].setAttribute("class", "char fade-in");
+      charIndex += 1
+
+      if (charIndex === limit) {
+        clearInterval(addFadeIn);
+      }
+    }
+  }
+
+  render() {
+    return(
+      <MainBody className="App">
+        <h1 className="introduction">Hi, I'm Cao Le</h1>
+        <AboutMe />
+        <MyProjects />
+        <Contact />
+      </MainBody>
+    )
+  }
 }
+
+const  MainBody = styled.div`
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1.introduction {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      opacity: 0;
+      color: white;
+      font-size: 35px;
+      font-family: cursive;
+      width: 150px;
+      transform: rotate(30deg);
+      transition: opacity 4s, width 2s, transform 2s, color 3s;
+    }
+
+    span.fade-in {
+      opacity: 1;
+      color: black;
+      width: fit-content;
+      transform: rotate(0deg);
+    }
+  }
+
+
+
+  div {
+    width: 80%;
+  
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+`;
 
 export default App;
