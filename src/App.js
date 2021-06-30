@@ -2,14 +2,14 @@
 import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
+// import {defaultLayoutPlugin} from "@react-pdf-viewer/default-layout";
 
 /* Component */
-
-import {AboutMe, MyProjects, Contact} from "./components"
+import {AboutMe, MyProjects, Contact, ResumeViewer} from "./components"
 
 class App extends React.Component {
   state = {
-
+    closeResumeModal: false
   }
 
   componentDidMount() {
@@ -79,22 +79,19 @@ const  MainBody = styled.div`
       color: white;
       font-size: 35px;
       font-family: cursive;
-      width: 150px;
+      width: fit-content;
       transform: rotate(30deg);
-      transition: opacity 4s, width 2s, transform 2s, color 3s;
+      transition: opacity 4s, transform 2s, color 3s;
     }
 
     span.fade-in {
       opacity: 1;
       color: black;
-      width: fit-content;
       transform: rotate(0deg);
     }
   }
 
-
-
-  div {
+  div.main-section {
     width: 80%;
   
     @media only screen and (max-width: 768px) {

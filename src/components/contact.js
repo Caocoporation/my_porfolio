@@ -1,10 +1,43 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import styled from "styled-components";
+import emailjs from "emailjs-com";
 
 class Contact extends React.Component{
   state = {
+    name: "",
+    email: "",
+    message: "",
+  }
 
+  nameInputHandler = (e) => {this.setState({ name: e.target.value })};
+  emailInputHandler = (e) => {this.setState({email: e.target.value})};
+  messageInputHandler = (e) => {this.setState({message: e.target.value})};
+  
+  sendEmailToMe = (e) => {
+    const formData = {
+      name: this.state.name,
+      email: this.state.email,
+      message: this.state.message
+    }
+
+    emailjs.send(
+      'service_a9wvlzf', 
+      'template_kplsumv', 
+      formData,
+      'user_YcPFSSkRhKLIwrJLYt6B7')
+
+      .then((result) => {
+        console.log(result.text);
+        this.setState({
+          name: "",
+          email: "",
+          message: ""
+        })
+
+      }, (error) => {
+          console.log(error.text);
+      });
   }
 
   render() {
@@ -19,21 +52,36 @@ class Contact extends React.Component{
 
               <div className="input-group">
                 <label>Name: </label>
-                <input type="text" placeholder="What should I call you..." />
+                <input 
+                  name="name" 
+                  type="text" 
+                  onChange={this.nameInputHandler} 
+                  placeholder="What should I call you..." 
+                  value={this.state.name}/>
               </div>
 
               <div className="input-group">
                 <label>Email: </label>
-                <input type="text" placeholder="Let me know how to contact you back..." />
+                <input 
+                  name="email" 
+                  type="text" 
+                  onChange={this.emailInputHandler} 
+                  placeholder="Let me know how to contact you back..." 
+                  value={this.state.email}/>
               </div>
 
               <div className="input-group">
                 <label>Message: </label>
-                <textarea className="contact-message" placeholder="What would you like to tell me..."></textarea>
+                <textarea 
+                  name="message" 
+                  className="contact-message" 
+                  onChange={this.messageInputHandler} 
+                  placeholder="What would you like to tell me..."
+                  value={this.state.message}></textarea>
               </div>
 
               <div className="button-group">
-                <input className="submit-button" type="button" value="Submit"/>
+                <input className="submit-button" type="button" value="Submit" onClick={this.sendEmailToMe}/>
               </div>
             </form>
           </div>

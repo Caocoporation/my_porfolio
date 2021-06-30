@@ -13,11 +13,13 @@ class MyProjects extends React.Component{
           <h1>My Projects</h1>
           <div className="my-projects">
               <div>
-                  <img className="e-commerce-website" src="e_commerce_website.jpeg" alt="error" />
-                  <b className="project-name">Online Store</b>
-                  <p className="project-description">Description</p>
+                  <img className="e-commerce-website" src="pizza_order_website.jpg" alt="error" />
+                  <b className="project-name">Pizza Order Website</b>
+                  <p className="project-description">
+                    Clients can view, pick and customize pizza as the way they want. The website allows customers to stack orders in the cart and pay online using bank cards or paypal
+                  </p>
                   <span>
-                    <a href="p1">Read More >></a>
+                    <a href="p1">Read More &gt;></a>
                   </span>
               </div>
                  
@@ -26,7 +28,7 @@ class MyProjects extends React.Component{
                 <b className="project-name">Real Time Chat App</b>
                 <p className="project-description">Real time chat app with many useful functions like modern social media website like facebook, zalo, linkedln. Users can create chatroom and invite others to form group chats </p>
                 <span>
-                  <a href="p1">Read More >></a>
+                  <a href="p1">Read More &gt;></a>
                 </span>
               </div>
 
@@ -39,7 +41,7 @@ class MyProjects extends React.Component{
                   The email from the firm of Morabito Consultants was among a series of documents released by the city of Surfside as rescue efforts continued at the site of the collapsed building, where more than 150 people remained unaccounted for. At least five people were killed in the collapse.
                 </p>
                 <span>
-                  <a href="p1">Read More >></a>
+                  <a href="p1">Read More &gt;></a>
                 </span>
               </div>
           </div>

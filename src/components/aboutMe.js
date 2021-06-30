@@ -1,15 +1,43 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import styled from "styled-components";
+import ResumeViewer from "./resume";
 
 class AboutMe extends React.Component{
   state = {
+    isClose: true,
+    isButton: false,
+  }
 
+  openResumeModal = () => {
+    this.setState({ 
+        isClose: !this.state.isClose,
+        isButton: !this.state.isButton
+    });
+  }
+
+  gotoLinkedProfile = () => {
+    window.open(
+        "https://www.linkedin.com/in/cao-le-74ba181b9",
+        "_blank"
+    )
+  }
+
+  componentDidMount() {
+    
   }
 
   render() {
     return(
       <AboutMeSection className="main-section">
+        {(() => {
+            return this.state.isClose ? <div></div> :  <ResumeViewer />
+        })()}
+
+        {(() => {
+            return this.state.isButton ? <div className="close-btn" onClick={this.openResumeModal}>X</div> : <div></div>
+        })()}
+
         <div className="upper-section">
             <div className="infor-section">
                 <div className="inner-infor-wrapper">
@@ -20,7 +48,8 @@ class AboutMe extends React.Component{
                     <div className="inner-infor-section">
                         <img className="drawing-pin" src="drawing_pin.png" alt="none"/>
                         <h2>What I Do</h2>
-                        <p> I build and develop websites with primary focus on Django and React</p>
+                        <hr />
+                        <p> I have built and developed websites and apps with primary focus on Django and React</p>
                     </div>
                 </div>
             </div>
@@ -28,12 +57,41 @@ class AboutMe extends React.Component{
         
         <div className="lower-section">
             <div className="more-about-me">
-                <h2>About Me</h2>
-                <p>Put .... here </p>
+                <div className="left-side">
+                    <h2>About Me</h2>
+                    <hr />
+                    <p>
+                        I'm Cao Le. A detail-oriented websites and apps developer with primary focus on Django and React. 
+                    </p>
+
+                    <p>
+                        I've built, developed and designed websites for my personal projects and freelance projects with commonly-used development tools. 
+                    </p>
+
+                    <p>
+                        Currently, I'm still looking for a web or app development job.
+                    </p>
+                </div>
+
+                <div className="right-side">
+                    <h2>Find Me</h2>
+                    <hr />
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        marginTop: "5px"
+                    }}>
+                        <b>View my profile on Linkedln: </b>
+                        <span className="view-linkedln-profile" onClick={this.gotoLinkedProfile}>Click here</span>
+                    </div>
+                </div>
+
+            
             </div>
 
             <div className="skills">
-                <h2>Technical Skills</h2>
+                <h2>Top Expertise</h2>
+                <hr />
                 <p 
                     style={{
                         marginTop: "10px",
@@ -42,7 +100,7 @@ class AboutMe extends React.Component{
                         Fullstack web developer with primary focus on Django and React
                 </p>
                 <p style={{ marginBottom: "10px" }}>
-                    Check out my resume for more information <span><a className="resume" href="#fsdf">View Resume</a></span>
+                    Check out my resume for more information <span onClick={this.openResumeModal}>View Resume</span>
                 </p>
                 <div className="technical-skills">
                     <nav>
@@ -83,16 +141,39 @@ const AboutMeSection = styled.div`
     align-items: center;
     background-color: rgb(38,38,38);
 
+    div.close-btn {
+        top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: 10px;
+        height: 30px;
+        width: 30px;
+        outline: white solid 2px;
+        color: white;
+        background-color: rgb(38, 38, 38);
+        border: none;
+        transition: background-color 0.5s;
+        z-index: 1;
+
+        &:hover {
+            color: black;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: whitesmoke;
+        }
+    }
+
     div.upper-section {
         display: flex;
         flex-direction: row;
-        width: 80%;
+        width: 100%;
         margin-top: 30px;
-        background-color: yellowgreen;
         justify-content: center;
         align-items: center;
 
-        @media only screen and (max-width: 640px) {
+        @media only screen and (max-width: 768px) {
             width: 100%;
         }
 
@@ -165,25 +246,77 @@ const AboutMeSection = styled.div`
     }
 
     div.lower-section {
-        background-color: yellowgreen;
-        width: 80%;
+        width: 100%;
 
-        @media only screen and (max-width: 640px) {
+        @media only screen and (max-width: 768px) {
             width: 100%;
         }
 
         div.more-about-me {
-            height: 180px;
             padding: 20px;
+            display: flex;
+            flex-direction: row;
+            
+            div.left-side {
+                width: 50%;
+                height: auto;
+                transition: all 0.5s;
+
+                p {
+                    margin-top: 5px;
+                }
+
+                @media only screen and (max-width: 768px) {
+                    margin-left: 0px;
+                    margin-top: 25px;
+                    width: 100%;
+                }
+            }
+
+            div.right-side {
+                width: 50%;
+                padding-left: 20px;
+                transition: all 0.5s;
+
+                span.view-linkedln-profile {
+                    background-image: linear-gradient(360deg, #cfcfcf 10%, #fcfcfc 55%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 1px;
+                    background-position: 0% 100%;
+                    transition: background-size 0.5s;
+                    width: fit-content;
+                    font-size: 16px;
+                    cursor: pointer;
+                    font-weight: 900;
+                    margin-top: 10px;
+                    
+                    &:hover {
+                        color: black;
+                        background-size: 100% 100%;
+                    }
+                }
+
+                @media only screen and (max-width: 768px) {
+                    padding-left: 0px;
+                    margin-top: 25px;
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+            }
         }
 
         div.skills {
             padding: 20px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
 
-            p {
+            /* p {
                 font-size: 18px;
-            }
+            } */
 
             span {
                 background-image: linear-gradient(360deg, #cfcfcf 10%, #fcfcfc 55%);
@@ -191,9 +324,13 @@ const AboutMeSection = styled.div`
                 background-size: 100% 1px;
                 background-position: 0% 100%;
                 transition: background-size 0.5s;
+                font-size: 19px;
+                font-weight: 900;
+                cursor: pointer;
                 
                 &:hover {
                     background-size: 100% 100%;
+                    color: black;
                 }
             }
 
@@ -234,7 +371,7 @@ const AboutMeSection = styled.div`
                         right: -18px;
                     }
 
-                    @media only screen and (max-width: 640px) {
+                    @media only screen and (max-width: 768px) {
                         width: 100%;
                         margin-bottom: 20px;
                     }
@@ -262,7 +399,7 @@ const AboutMeSection = styled.div`
                     }
                 }
 
-                @media only screen and (max-width: 640px) {
+                @media only screen and (max-width: 768px) {
                     flex-direction: column;
                 }
             }
