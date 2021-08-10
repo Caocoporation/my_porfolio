@@ -326,7 +326,6 @@ const AboutMeSection = styled.div`
 
     div.lower-section {
         width: 85%;
-        border: 1px solid white;
         display: flex;
         flex-direction: column;
         justify-content: center;
