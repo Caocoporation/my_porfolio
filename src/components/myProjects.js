@@ -23,7 +23,7 @@ class MyProjects extends React.Component{
                     Clients can view, pick and customize pizza as the way they want. The website allows customers to stack orders in the cart and pay online using bank cards or paypal
                   </p>
                   <button 
-                    data-link
+                    data-project-url="https://github.com/cao-trong-le/pizza_app.git"
                     onClick={this.gotoProject}>
                     Read More &gt;&gt;
                   </button>
@@ -33,7 +33,9 @@ class MyProjects extends React.Component{
                 <img className="real-time-chat" src="real_time_chat.png" alt="error" />
                 <b className="project-name">Real Time Chat App</b>
                 <p className="project-description">Real time chat app with many useful functions like modern social media website like facebook, zalo, linkedln. Users can create chatroom and invite others to form group chats </p>
-                 <button onClick={this.gotoProject}>
+                 <button 
+                    data-project-url="https://github.com/cao-trong-le/rt_chat_app.git"
+                    onClick={this.gotoProject}>
                     Read More &gt;&gt;
                   </button>
               </div>
@@ -45,7 +47,8 @@ class MyProjects extends React.Component{
                   A dynamic event setting app built by using Django and React allows users to view weather of a certain date and set events on that date. With help from tasks scheduling package like Apschedule, for each event, server will send notification messages to users' email boxes at exactly the time set in the event. 
                 </p>
 
-                 <button 
+                <button 
+                    data-project-url="https://github.com/cao-trong-le/weather_event_app.git"
                     onClick={this.gotoProject}>
                   Read More &gt;&gt;
                 </button>
