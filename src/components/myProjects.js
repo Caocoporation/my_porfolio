@@ -8,7 +8,10 @@ class MyProjects extends React.Component{
   }
 
   gotoProject = (e) => {
-    
+    window.open(
+      e.target.getAttribute("data-project-link"),
+      "_blank"
+    )
   }
 
   render() {
