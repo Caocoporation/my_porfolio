@@ -99,6 +99,16 @@ const ContactSection = styled.div`
   /* justify-content: center; */
   align-items: center;
 
+  /* Change the white to any color */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgb(38,38,38) inset !important;
+    box-shadow: 0 0 0 30px rgb(38,38,38) inset !important;
+    -webkit-text-fill-color: white !important;
+  }
+
   h1 {
     margin-top: 20px;
   }

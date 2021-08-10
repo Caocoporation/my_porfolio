@@ -18,7 +18,14 @@ class AboutMe extends React.Component{
 
   gotoLinkedProfile = () => {
     window.open(
-        "https://www.linkedin.com/in/cao-le-74ba181b9",
+        "https://www.linkedin.com/in/cao-trong-le/",
+        "_blank"
+    )
+  }
+
+  gotoGithubProfile = () => {
+    window.open(
+        "https://github.com/cao-trong-le/",
         "_blank"
     )
   }
@@ -35,7 +42,9 @@ class AboutMe extends React.Component{
         })()}
 
         {(() => {
-            return this.state.isButton ? <div className="close-btn" onClick={this.openResumeModal}>X</div> : <div></div>
+            return this.state.isButton ? <div 
+                className="close-btn" 
+                onClick={this.openResumeModal}>X</div> : <div></div>
         })()}
 
         <div className="upper-section">
@@ -46,7 +55,7 @@ class AboutMe extends React.Component{
                     </div>
 
                     <div className="inner-infor-section">
-                        <img className="drawing-pin" src="drawing_pin.png" alt="none"/>
+                        <i class="fab fa-pinterest-p"></i>
                         <h2>What I Do</h2>
                         <hr />
                         <p> I have built and developed websites and apps with primary focus on Django and React</p>
@@ -81,8 +90,39 @@ class AboutMe extends React.Component{
                         flexDirection: "column",
                         marginTop: "5px"
                     }}>
-                        <b>View my profile on Linkedln: </b>
-                        <span className="view-linkedln-profile" onClick={this.gotoLinkedProfile}>Click here</span>
+
+                        <p>Find more about me on Linkedin and Github</p>
+                        <span
+                            className="view-linkedln-profile" 
+                            onClick={this.gotoLinkedProfile}>
+
+                            <i class="fab fa-linkedin"></i>
+                            <p>www.linkedin.com/in/cao-trong-le/</p>
+                        </span>
+
+                        <span 
+                            className="view-github-profile" 
+                            onClick={this.gotoGithubProfile}>
+                            
+                            <i class="fab fa-github"></i>
+                            <p>github.com/cao-trong-le/</p>
+                        </span>
+
+                        <p 
+                            style={{ 
+                                marginTop: "25px",
+                                marginBottom: "5px" 
+                            }}>
+
+                            Check out my resume for more information 
+                        </p>
+
+                        <span 
+                            className="view-resume" 
+                            onClick={this.openResumeModal}>
+                                <i class="far fa-file"></i>
+                                <p>My resume</p>
+                        </span>
                     </div>
                 </div>
 
@@ -95,33 +135,63 @@ class AboutMe extends React.Component{
                 <p 
                     style={{
                         marginTop: "10px",
-                        marginBottom: "10px"
+                        marginBottom: "0px",
+                        marginBlockEnd: "0px",
+                        marginBlockStart: "0px",
                     }}>
                         Fullstack web developer with primary focus on Django and React
                 </p>
-                <p style={{ marginBottom: "10px" }}>
-                    Check out my resume for more information <span onClick={this.openResumeModal}>View Resume</span>
-                </p>
+                
                 <div className="technical-skills">
                     <nav>
-                        <img className="drawing-pin" src="drawing_pin.png" alt="none"/>
+                        <i class="fab fa-pinterest-p"></i>
                         <ul>
-                            <li><img src="star_icon.png" alt="star" />Python Programing</li>
-                            <li><img src="star_icon.png" alt="star" />Django</li>
-                            <li><img src="star_icon.png" alt="star" />Javascript</li>
-                            <li><img src="star_icon.png" alt="star" />React</li>
-                            <li><img src="star_icon.png" alt="star" />MySQL, Postgres</li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>Python Programing</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>Django, Flask</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>Javascript</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>React</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>MySQL, PostgreSQL, MongoDB, SQLite</p>
+                            </li>
                         </ul>
                     </nav>
 
                     <nav>
-                        <img className="drawing-pin" src="drawing_pin.png" alt="none"/>
+                        <i class="fab fa-pinterest-p"></i>
                         <ul>
-                            <li><img src="star_icon.png" alt="star" />Git and Github</li>
-                            <li><img src="star_icon.png" alt="star" />HTML/CSS</li>
-                            <li><img src="star_icon.png" alt="star" />AWS</li>
-                            <li><img src="star_icon.png" alt="star" />Heroku</li>
-                            <li><img src="star_icon.png" alt="star" />Google Maps API</li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>Git Version Control</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>HTML5 / CSS3</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>AWS</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>Heroku</p>
+                            </li>
+                            <li>
+                                <i class="far fa-star"></i>
+                                <p>Google Maps API</p>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -181,17 +251,18 @@ const AboutMeSection = styled.div`
             display: flex;
             justify-content: flex-end;
             width: 450px;
-            /* background-color: yellowgreen; */
             height: 250px;
 
             div.inner-infor-wrapper {
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
-                height: 100px;
-                margin-top: 80px;
-                background-color: white;
-                border-radius: 5px;;
+                height: 130px;
+                margin-top: 70px;
+                background-color: transparent;
+                box-shadow: 0 0 0 2px whitesmoke;
+                border-radius: 5px;
+                color: whitesmoke;
 
                 div.avatar {
                     height: 200px;
@@ -213,7 +284,7 @@ const AboutMeSection = styled.div`
                 }
                             
                 div.inner-infor-section {
-                    background-color: white;
+                    background-color: transparent;
                     color: black;
                     width: 50%;
                     height: 100px;
@@ -223,17 +294,25 @@ const AboutMeSection = styled.div`
                     flex-direction: column;
                     padding: 5px;
                     border-radius: 5px;
+                    color: whitesmoke;
+                    margin-top: 5px;
 
                     h2 {
                         margin-bottom: 5px;
                     }
 
-                    img.drawing-pin {
-                        width: 50px;
-                        height: 50px;
+                    hr {
+                        width: 100%;
+                        background-color: whitesmoke;
+                        margin-bottom: 10px;
+                    }
+
+                    i {
+                        font-size: 25px;
                         position: absolute;
-                        top: -15px;
-                        right: -15px;
+                        top: 5px;
+                        right: 5px;
+                        transform: rotate(20deg);
                     }
                 }
 
@@ -246,7 +325,12 @@ const AboutMeSection = styled.div`
     }
 
     div.lower-section {
-        width: 100%;
+        width: 85%;
+        border: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         @media only screen and (max-width: 768px) {
             width: 100%;
@@ -256,14 +340,23 @@ const AboutMeSection = styled.div`
             padding: 20px;
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            /* align-items: center; */
             
             div.left-side {
-                width: 50%;
+                width: 45%;
                 height: auto;
                 transition: all 0.5s;
 
+                hr {
+                    width: 100%;
+                    background-color: whitesmoke;
+                    margin-bottom: 15px;
+                }
+
                 p {
                     margin-top: 5px;
+                    margin-bottom: 10px;
                 }
 
                 @media only screen and (max-width: 768px) {
@@ -274,10 +367,18 @@ const AboutMeSection = styled.div`
             }
 
             div.right-side {
-                width: 50%;
+                width: 45%;
                 padding-left: 20px;
                 transition: all 0.5s;
 
+                hr {
+                    width: 100%;
+                    background-color: whitesmoke;
+                    margin-bottom: 15px;
+                }
+
+                span.view-resume,
+                span.view-github-profile,
                 span.view-linkedln-profile {
                     background-image: linear-gradient(360deg, #cfcfcf 10%, #fcfcfc 55%);
                     background-repeat: no-repeat;
@@ -289,6 +390,15 @@ const AboutMeSection = styled.div`
                     cursor: pointer;
                     font-weight: 900;
                     margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    padding: 3px;
+                    border-radius: 5px;
+
+                    i {
+                        font-size: 25px;
+                        margin-right: 10px;
+                    }
                     
                     &:hover {
                         color: black;
@@ -310,13 +420,19 @@ const AboutMeSection = styled.div`
 
         div.skills {
             padding: 20px;
-            width: 100%;
+            width: 90%;
             display: flex;
             flex-direction: column;
 
-            /* p {
-                font-size: 18px;
-            } */
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+            }
+
+            hr {
+                width: 100%;
+                background-color: whitesmoke;
+                margin-bottom: 10px;
+            }
 
             span {
                 background-image: linear-gradient(360deg, #cfcfcf 10%, #fcfcfc 55%);
@@ -334,51 +450,52 @@ const AboutMeSection = styled.div`
                 }
             }
 
-            a.resume {
-                text-decoration: none;
-                font-weight: 600;
-                color: white;
-
-
-                &:hover {
-                    color: black;
-                }
-            }
-
             div.technical-skills {
                 display: flex;
                 margin-top: 35px;
                 margin-bottom: 20px;
-                align-items: center;
+                /* align-items: center; */
                 justify-content: left;
                 width: 100%;
-                color: black;
+                color: whitesmoke;
+
+                @media only screen and (max-width: 1024px) {
+                    flex-direction: column;
+                }
             
-                
                 nav {
-                    background-color: white;
-                    margin-left: 10px;
-                    width: 40%;
+                    background-color: transparent;
+                    width: 50%;
                     padding: 20px 10px 10px 10px;
                     position: relative;
                     border-radius: 5px;
+                    box-shadow: 0 0 0 2px whitesmoke;
 
-                    img.drawing-pin {
-                        width: 50px;
-                        height: 50px;
+                    i.fa-pinterest-p {
+                        font-size: 35px;
                         position: absolute;
-                        top: -18px;
-                        right: -18px;
+                        right: 5px;
+                        top: 5px;
+                        transform: rotate(30deg)
                     }
-
-                    @media only screen and (max-width: 768px) {
+ 
+                    @media only screen and (max-width: 1024px) {
                         width: 100%;
                         margin-bottom: 20px;
                     }
                 }
 
+                nav:nth-child(2) {
+                    margin-left: 15px;
+
+                    @media only screen and (max-width: 1024px) {
+                        margin-left: 0px;
+                    }
+                }
+
                 ul {
                     list-style: none;
+                    color: whitesmoke;
 
                     li {
                         max-height: 50px;
@@ -389,18 +506,11 @@ const AboutMeSection = styled.div`
                         justify-content: left;
                         align-items: center;
 
-                        img {
-                            width: 20px;
-                            height: 20px;
-                            border-radius: 50%;
-                            margin-right: 5px; 
+                        i.fa-star {
+                            font-size: 20px;
+                            margin-right: 10px;
                         }
-
                     }
-                }
-
-                @media only screen and (max-width: 768px) {
-                    flex-direction: column;
                 }
             }
         }

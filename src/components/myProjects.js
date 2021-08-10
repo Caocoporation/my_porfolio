@@ -7,6 +7,10 @@ class MyProjects extends React.Component{
 
   }
 
+  gotoProject = (e) => {
+    
+  }
+
   render() {
     return(
       <ProjectSection className="main-section">
@@ -18,31 +22,33 @@ class MyProjects extends React.Component{
                   <p className="project-description">
                     Clients can view, pick and customize pizza as the way they want. The website allows customers to stack orders in the cart and pay online using bank cards or paypal
                   </p>
-                  <span>
-                    <a href="p1">Read More &gt;></a>
-                  </span>
+                  <button 
+                    data-link
+                    onClick={this.gotoProject}>
+                    Read More &gt;&gt;
+                  </button>
               </div>
                  
               <div>
                 <img className="real-time-chat" src="real_time_chat.png" alt="error" />
                 <b className="project-name">Real Time Chat App</b>
                 <p className="project-description">Real time chat app with many useful functions like modern social media website like facebook, zalo, linkedln. Users can create chatroom and invite others to form group chats </p>
-                <span>
-                  <a href="p1">Read More &gt;></a>
-                </span>
+                 <button onClick={this.gotoProject}>
+                    Read More &gt;&gt;
+                  </button>
               </div>
 
               <div>
                 <img className="weather-forecast-app" src="weather_forecast_website.jpg" alt="error" />
                 <b className="project-name">Weather Forecast App</b>
                 <p className="project-description">
-                  ST. PETERSBURG, Fla. (AP) -- Nearly three years before an oceanfront building collapsed near Miami, an engineering firm estimated that major repairs the building needed would cost more than $9 million, according to newly released emails.
-
-                  The email from the firm of Morabito Consultants was among a series of documents released by the city of Surfside as rescue efforts continued at the site of the collapsed building, where more than 150 people remained unaccounted for. At least five people were killed in the collapse.
+                  A dynamic event setting app built by using Django and React allows users to view weather of a certain date and set events on that date. With help from tasks scheduling package like Apschedule, for each event, server will send notification messages to users' email boxes at exactly the time set in the event. 
                 </p>
-                <span>
-                  <a href="p1">Read More &gt;></a>
-                </span>
+
+                 <button 
+                    onClick={this.gotoProject}>
+                  Read More &gt;&gt;
+                </button>
               </div>
           </div>
       </ProjectSection>
@@ -68,12 +74,10 @@ const ProjectSection = styled.div`
     flex-wrap: wrap;
     margin-top: 20px;
     width: 100%;
-    /* align-items: center; */
     justify-content: center;
 
     @media only screen and (max-width: 768px) {
       flex-direction: column;
-      /* align-items: center; */
       width: 100%;
     }
 
@@ -84,26 +88,25 @@ const ProjectSection = styled.div`
       margin-bottom: 10px;
     }
 
-    span {
-      background-image: linear-gradient(360deg, #403c3c 10%, #000000 55%);
+    button {
+      background-image: linear-gradient(360deg, white 10%, white 55%);
       background-repeat: no-repeat;
       background-size: 0 100%;
       background-position: 0% 100%;
       transition: background-size 0.5s;
-      /* border: 2px solid black; */
+      border: 2px solid white;
+      width: 100px;
+      height: fit-content;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
 
       &:hover {
-        background-size: 100% 100%;
-      }
-
-      a {
         color: black;
-        font-weight: 600;
-        text-decoration: none;
-
-        &:hover {
-          color: white;
-        }
+        background-size: 100% 100%;
       }
     }
 
@@ -111,11 +114,10 @@ const ProjectSection = styled.div`
       width: 280px;
       margin: 10px;
       padding: 15px;
-      background-color: white;
+      background-color: transparent;
       border-radius: 5px;
-      color: black;
-
-      /* transition: width 0.5s, height 0.5s; */
+      color: whitesmoke;
+      box-shadow: 0 0 0 2px whitesmoke;
 
       @media only screen and (max-width: 768px) {
         flex-direction: column;
@@ -126,16 +128,15 @@ const ProjectSection = styled.div`
 
       b.project-name {
         font-size: 20px;
-        /* background-color: aquamarine; */
       }
 
       p.project-description {
         margin-top: 10px;
         margin-bottom: 10px;
         font-size: 16px;
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 150px;
-        border-top: 5px solid black;
+        border-top: 3px solid whitesmoke;
         padding-top: 3px;
         padding-right: 3px;
 
@@ -149,7 +150,7 @@ const ProjectSection = styled.div`
         }
 
         &::-webkit-scrollbar-track {
-          background-color: white;
+          background-color: transparent;
         }
       }
     }

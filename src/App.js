@@ -59,7 +59,7 @@ class App extends React.Component {
 }
 
 const  MainBody = styled.div`
-  padding: 0;
+  padding: 10px;
   margin: 0;
   box-sizing: border-box;
   background-color: white;
@@ -67,6 +67,11 @@ const  MainBody = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: whitesmoke;
+
+  p {
+    font-size: 16px;
+  }
 
   h1.introduction {
     height: 80px;
