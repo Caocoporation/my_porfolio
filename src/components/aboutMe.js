@@ -164,7 +164,7 @@ class AboutMe extends React.Component{
                             </li>
                             <li>
                                 <i class="far fa-star"></i>
-                                <p>MySQL, PostgreSQL, MongoDB, SQLite</p>
+                                <p>MySQL, PostgreSQL, MongoDB, Redis</p>
                             </li>
                         </ul>
                     </nav>
